@@ -1,0 +1,11 @@
+version:  '3'
+services:
+  datascience-notebook:
+      image:    jupyter/datascience-notebook
+      volumes:
+        - ${LOCAL_WORKING_DIR}:/home/jovyan/human_detection
+      ports:
+        - ${PORT}:8888
+      container_name:   jupyter_notebook_hd
+      command: "start-notebook.sh \
+        --NotebookApp.password=${ACCESS_TOKEN}"
